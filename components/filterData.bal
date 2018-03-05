@@ -9,7 +9,7 @@ public function filterData(json file, int thresh)(sql:Parameter[][]){
     int oc =0;
     int gap;
     boolean isIssueOPEN;
-    foreach project in file.data.organization.projects.nodes {
+    foreach project in file {
         if (lengthof project.columns.nodes == 0) {
             next;
         }

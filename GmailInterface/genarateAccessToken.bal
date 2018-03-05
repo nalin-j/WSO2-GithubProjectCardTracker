@@ -1,14 +1,13 @@
 package GmailInterface;
 
 import ballerina.net.http;
-import ballerina.util;
 import ballerina.config;
 import ballerina.log;
 
 
-string refresh_token = "1/MV1fVIIByVd5ySXGMOGzuwAd3-fX6Udtra_Mp2piVFfEod_lcJRzbdM9ldqVT3Bx";
-string client_id = "450804311269-aocr77s3p09lpgefg7gng87dbtk1cl81.apps.googleusercontent.com";
-string client_secret = "0wgUN6VHFTMb4sP_EvUMy1tq";
+string refresh_token = config:getGlobalValue("conf_Gmailrefresh_token");
+string client_id = config:getGlobalValue("conf_Gmailclient_id");
+string client_secret = config:getGlobalValue("conf_Gmailclient_secret");
 
 public function genarateAccessToken () (string, error) {
 
@@ -47,18 +46,5 @@ public function genarateAccessToken () (string, error) {
         msg = {msg:"Error getting the access token"};
     }
 
-
     return token, msg;
-}
-
-function getConnectorConfigs() (http:Options) {
-    http:Options option = {
-                              ssl: {
-                                       trustStoreFile:"/home/njay/ballerina-tools-0.961.0/bre/security/ballerinaTruststore.p12",
-                                       trustStorePassword:"ballerina",
-                                       ciphers:"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"
-                                   },
-                              followRedirects: {}
-                          };
-    return option;
 }
