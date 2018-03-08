@@ -6,7 +6,6 @@ import ballerina.data.sql;
 import GmailInterface;
 import ballerina.config;
 
-
 public function main (string[] args) {
     var threshold,_= <int>config:getGlobalValue("conf_threshold");
     json file = graphqlInterface:getData();

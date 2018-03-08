@@ -190,6 +190,7 @@ function htmlBody(string delay,string url,string task,string project,string crea
                 "<!-- CTA : END --> <!-- SOCIAL : BEGIN --></tbody>" +
                 "</table>" +
                 "</div>";
+
     return (Body);
 
 }
